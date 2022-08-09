@@ -124,7 +124,6 @@ class HBNBCommand(cmd.Cmd):
             return
         new_instance = HBNBCommand.classes[myList[0]]()
 
-        # GMP - INI
         if len(myList) > 1:
             for param in myList[1:]:
                 separator = param.split('=')
@@ -134,10 +133,11 @@ class HBNBCommand(cmd.Cmd):
                     nameValue = nameValue.replace("_", " ")
                     nameValue = nameValue.replace("\"", "")
                 else:
-                    evaluator = eval(nameValue)
-                    nameValue = evaluator
+                    if "." in nameValue:
+                        nameValue = float(nameValue)
+                    else:
+                        nameValue = int(nameValue)
                 setattr(new_instance, namekey, nameValue)
-        # GMP - FIN
         print(new_instance.id)
         storage.save()
 
