@@ -1,10 +1,7 @@
 #!/usr/bin/python3
 """ Console Module """
 import cmd
-from curses.ascii import isdigit
-from dataclasses import replace
 import sys
-from unicodedata import name
 from models.base_model import BaseModel
 from models.__init__ import storage
 from models.user import User
@@ -137,10 +134,13 @@ class HBNBCommand(cmd.Cmd):
                     nameValue = nameValue.replace("_", " ")
                     nameValue = nameValue.replace("\"", "")
                 else:
-                    if "." in nameValue:
-                        nameValue = float(nameValue)
-                    else:
-                        nameValue = int(nameValue)
+                    try:
+                        if "." in nameValue:
+                            nameValue = float(nameValue)
+                        else:
+                            nameValue = int(nameValue)
+                    except:
+                        pass
                 setattr(new_instance, namekey, nameValue)
         # GMP - FIN
         print(new_instance.id)
