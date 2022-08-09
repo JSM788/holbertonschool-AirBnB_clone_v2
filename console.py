@@ -133,14 +133,10 @@ class HBNBCommand(cmd.Cmd):
                 if nameValue[0] in '"':
                     nameValue = nameValue.replace("_", " ")
                     nameValue = nameValue.replace("\"", "")
+                elif "." in nameValue:
+                    nameValue = float(nameValue)
                 else:
-                    try:
-                        if "." in nameValue:
-                            nameValue = float(nameValue)
-                        else:
-                            nameValue = int(nameValue)
-                    except:
-                        pass
+                    nameValue = int(nameValue)
                 setattr(new_instance, namekey, nameValue)
         # GMP - FIN
         print(new_instance.id)
