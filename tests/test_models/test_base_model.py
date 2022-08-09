@@ -18,7 +18,7 @@ class test_basemodel(unittest.TestCase):
         self.value = BaseModel
 
     def setUp(self):
-        """ """
+        """ test of method setUp """
         pass
 
     def tearDown(self):
