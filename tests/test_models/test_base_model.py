@@ -22,10 +22,10 @@ class test_basemodel(unittest.TestCase):
         pass
 
     def tearDown(self):
-        """ """
+        """ Remove storage file at end of tests """
         try:
             os.remove('file.json')
-        except Exception:
+        except:
             pass
 
     def test_default(self):
