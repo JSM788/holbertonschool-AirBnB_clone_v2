@@ -39,7 +39,7 @@ class DBStorage:
         """ Methods for list the table"""
         dictionary = {}
         # classes = [User, State, City, Place, Review]
-        classes = [State, City]
+        classes = [User, State, City]
         if cls is None:
             for x in classes:
                 queryAll = self.__session.query(x)
