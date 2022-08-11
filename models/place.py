@@ -7,6 +7,7 @@ from sqlalchemy.orm import relationship
 import models
 import os
 
+
 class Place(BaseModel, Base):
     """ A place to stay """
     __tablename__ = 'places'
