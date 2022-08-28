@@ -6,10 +6,10 @@ from datetime import datetime
 
 
 def do_pack():
+    """All files in the folder web_static must be added to the final archive"""
     local("mkdir -p versions")
-
-    fil = "versions/web_static_{}.tgz web_static"
-    .format(datetime.strftime(datetime.now(), "%Y%m%d%H%M%S"), capture=True)
+    time = datetime.strftime(datetime.now(), "%Y%m%d%H%M%S")
+    fil = "versions/web_static_{}.tgz web_static ".format(time)
     validation = local("tar -cvzf" + fil)
 
     if validation.failed:
