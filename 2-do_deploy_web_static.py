@@ -1,10 +1,12 @@
 #!/usr/bin/python3
 """This script (based on the file 1-pack_web_static.py)
-that distributes an archive to your web servers, using the function do_deploy"""
+that distributes an archive to your web servers, using
+the function do_deploy"""
 from fabric.api import *
 from os import path
 
 env.hosts = ['54.89.191.220', '23.20.55.144']
+
 
 def do_deploy(archive_path):
     """Uncompress the archive"""
@@ -14,10 +16,10 @@ def do_deploy(archive_path):
         # versions/web_static_20170315003959.tgz
         with_tgz = archive_path.split("/")
         with_tgz = with_tgz[1]
-        
+
         no_tgz = with_tgz.split(".")
         no_tgz = no_tgz[0]
-        
+
         # /tmp/web_static_20170315003959.tgz
         path_tmp = "/tmp/{}".format(with_tgz)
         print("PATH_TMP")
