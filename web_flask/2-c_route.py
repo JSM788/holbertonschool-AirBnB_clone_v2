@@ -14,7 +14,16 @@ def index():
 @app.route("/hbnb", strict_slashes=False)
 def hbnb():
     """"Redirects you to the hbnb route"""
-    return "HBNB"
+    return "Hello HBHB"
+
+
+@app.route("/c/<string:text>", strict_slashes=False)
+def c(text):
+    """Redirects you to the c route"""
+    if "_" in text:
+        new_text = text.replace("_", " ")
+        return "C {}".format(new_text)
+    return "C {}".format(text)
 
 
 if __name__ == '__main__':
