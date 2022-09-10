@@ -36,7 +36,6 @@ def python(text="is_cool"):
     return "Python {}".format(text)
 
 
-@app.route("/number", strict_slashes=False)
 @app.route("/number/<int:n>", strict_slashes=False)
 def number(n):
     """Redirects you to the number route and number/n"""
