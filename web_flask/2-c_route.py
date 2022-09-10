@@ -14,7 +14,7 @@ def index():
 @app.route("/hbnb", strict_slashes=False)
 def hbnb():
     """"Redirects you to the hbnb route"""
-    return "Hello HBHB"
+    return "Hello HBNB"
 
 
 @app.route("/c/<string:text>", strict_slashes=False)
