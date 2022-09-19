@@ -2,6 +2,7 @@
 """script that starts a Flask web application"""
 from flask import Flask, render_template
 from models import storage
+from models import *
 
 app = Flask(__name__)
 
@@ -15,13 +16,13 @@ def cities_by_states(state_id=None):
     else:
         states = storage.all("State")
         state_id = "State." + state_id
+
     return render_template("9-states.html", states=states, state_id=state_id)
 
 
 @app.teardown_appcontext
 def teardown_appcontext(exception):
     """Call to close"""
-
     storage.close()
 
 
