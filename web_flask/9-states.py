@@ -9,7 +9,7 @@ app = Flask(__name__)
 
 @app.route("/states", strict_slashes=False)
 @app.route("/states/<state_id>", strict_slashes=False)
-def cities_by_states(state_id=None):
+def states(state_id=None):
     """Route to states_list"""
     if state_id is None:
         states = storage.all("State")
