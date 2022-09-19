@@ -1,0 +1,29 @@
+#!/usr/bin/python3
+"""script that starts a Flask web application"""
+from flask import Flask, render_template
+from models import storage
+
+app = Flask(__name__)
+
+
+@app.route("/states", strict_slashes=False)
+@app.route("/states/<state_id>", strict_slashes=False)
+def cities_by_states(state_id=None):
+    """Route to states_list"""
+    if state_id is None:
+        states = storage.all("State")
+    else:
+        states = storage.all("State")
+        state_id = "State." + state_id
+    return render_template("9-states.html", states=states, state_id=state_id)
+
+
+@app.teardown_appcontext
+def teardown_appcontext(exception):
+    """Call to close"""
+
+    storage.close()
+
+
+if __name__ == '__main__':
+    app.run(host="0.0.0.0", port=5000)
